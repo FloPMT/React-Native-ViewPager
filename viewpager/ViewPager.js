@@ -105,10 +105,10 @@ export default class ViewPager extends Component {
             marginHorizontal: -this.props.pageMargin / 2
         }
         if (this.props.style && !this.props.style.height)
-            return <ScrollView {...props} style={[scrollViewStyle, this.props.style]} alwaysBounceHorizontal={false} />
+            return <ScrollView {...props} style={[scrollViewStyle, this.props.style]} alwaysBounceHorizontal={false} bounces={false} />
         else return (
             <View style={this.props.style} >
-                <ScrollView {...props} style={scrollViewStyle} alwaysBounceHorizontal={false} />
+                <ScrollView {...props} style={scrollViewStyle} alwaysBounceHorizontal={false} bounces={false} />
             </View>
         )
     }
