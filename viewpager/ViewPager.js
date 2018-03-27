@@ -97,9 +97,7 @@ export default class ViewPager extends Component {
             contentOffset: {x: this.state.width * initialPage, y: 0},
             decelerationRate: 0.9,
             onScroll: needMonitorScroll ? this._onScrollOnIOS : null,
-            scrollEventThrottle: needMonitorScroll ? ( this.props.onPageScroll ? 8 : 1) : 0,
-            alwaysBounceVertical: false,
-            alwaysBounceHorizontal: false
+            scrollEventThrottle: needMonitorScroll ? ( this.props.onPageScroll ? 8 : 1) : 0
         }
         if (needMonitorTouch) props = Object.assign(props, this._panResponder.panHandlers)
         const scrollViewStyle = {
@@ -107,10 +105,10 @@ export default class ViewPager extends Component {
             marginHorizontal: -this.props.pageMargin / 2
         }
         if (this.props.style && !this.props.style.height)
-            return <ScrollView {...props} style={[scrollViewStyle, this.props.style]} />
+            return <ScrollView {...props} style={[scrollViewStyle, this.props.style]} alwaysBounceHorizontal={false} />
         else return (
             <View style={this.props.style} >
-                <ScrollView {...props} style={scrollViewStyle} />
+                <ScrollView {...props} style={scrollViewStyle} alwaysBounceHorizontal={false} />
             </View>
         )
     }
