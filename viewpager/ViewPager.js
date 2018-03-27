@@ -102,7 +102,8 @@ export default class ViewPager extends Component {
         if (needMonitorTouch) props = Object.assign(props, this._panResponder.panHandlers)
         const scrollViewStyle = {
             overflow: 'visible',
-            marginHorizontal: -this.props.pageMargin / 2
+            marginHorizontal: -this.props.pageMargin / 2,
+            backgroundColor: "red"
         }
         if (this.props.style && !this.props.style.height)
             return <ScrollView {...props} style={[scrollViewStyle, this.props.style]} />
